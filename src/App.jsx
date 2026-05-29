@@ -1,122 +1,100 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="min-h-screen bg-yellow-50">
+      {/* Hero Section */}
+      <div className="bg-black text-white py-16 text-center">
+        <h1 className="text-5xl font-bold mb-4">
+          Doorstep Electrician
+        </h1>
 
-      <div className="ticks"></div>
+        <p className="text-xl">
+          Fast & Reliable Electrical Services in Mumbai
+        </p>
+      </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {/* Service Areas */}
+      <div className="py-12 text-center">
+        <h2 className="text-3xl font-bold mb-8">
+          Service Areas
+        </h2>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Bandra", "Khar", "Santacruz", "Vile Parle"].map((area) => (
+            <div
+              key={area}
+              className="bg-yellow-200 px-6 py-3 rounded-xl shadow-md"
+            >
+              {area}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Complaint Form */}
+      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8 mb-10">
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          Raise Complaint
+        </h2>
+
+        <form className="space-y-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full border p-3 rounded-lg"
+          />
+
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            className="w-full border p-3 rounded-lg"
+          />
+
+          <select className="w-full border p-3 rounded-lg">
+            <option>Select Area</option>
+            <option>Bandra</option>
+            <option>Khar</option>
+            <option>Santacruz</option>
+            <option>Vile Parle</option>
+          </select>
+
+          <textarea
+            placeholder="Full Address"
+            className="w-full border p-3 rounded-lg"
+          />
+
+          <select className="w-full border p-3 rounded-lg">
+            <option>Select Issue</option>
+            <option>Fan Repair</option>
+            <option>Light Issue</option>
+            <option>MCB Trip</option>
+            <option>Wiring Problem</option>
+          </select>
+
+          <input
+            type="date"
+            className="w-full border p-3 rounded-lg"
+          />
+
+          <input
+            type="time"
+            className="w-full border p-3 rounded-lg"
+          />
+
+          <textarea
+            placeholder="Describe your issue"
+            className="w-full border p-3 rounded-lg"
+          />
+
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800"
+          >
+            Submit Complaint
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
